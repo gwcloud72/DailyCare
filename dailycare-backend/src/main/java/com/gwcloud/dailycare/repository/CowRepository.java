@@ -1,4 +1,4 @@
-package com.gwcloud.dailycare.service;
+package com.gwcloud.dailycare.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

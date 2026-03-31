@@ -1,4 +1,4 @@
-package com.gwcloud.dailycare.conroller;
+package com.gwcloud.dailycare.controller;
 
 import java.util.List;
 

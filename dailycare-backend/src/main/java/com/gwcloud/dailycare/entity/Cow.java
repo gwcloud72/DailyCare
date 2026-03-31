@@ -46,7 +46,7 @@ public class Cow {
   private LocalDateTime createdAt;
   //생성일시
   
-  @Column(name="updated_at, nullable=false")
+  @Column(name="updated_at", nullable=false)
   private LocalDateTime updatedAt;
   //수정일시
   

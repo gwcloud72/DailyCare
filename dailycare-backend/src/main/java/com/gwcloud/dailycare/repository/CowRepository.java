@@ -4,8 +4,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.gwcloud.dailycare.entity.Cow;
 
-// 개체 엔티티 DB접근을 담당하는 Repository
-// JpaRepository를 상속받아 기존 CRUD기능을 사용할수있다.
+/*
+ * 개체 엔티티 DB 접근 Repository
+ */
 public interface CowRepository extends JpaRepository<Cow, Long> {
-   boolean existsByEarTag(String earTag);
+
+    // 등록할 때 같은 개체번호가 이미 있는지 확인
+    boolean existsByEarTag(String earTag);
+
+    // 수정할 때 자기 자신을 제외하고 같은 개체번호가 있는지 확인
+    boolean existsByEarTagAndIdNot(String earTag, Long id);
 }

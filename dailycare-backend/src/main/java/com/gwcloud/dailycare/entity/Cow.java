@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -76,7 +77,27 @@ public class Cow {
 	  }
   }
   
-  
+  /*
+   * 수정될 때마다 수정일시를 갱신한다.
+   */
+  @PreUpdate
+  public void preUpdate() {
+      this.updatedAt = LocalDateTime.now();
+  }
+
+  /*
+   * 젖소 정보 수정
+   * 서비스에서는 이 메서드를 호출해서 엔티티 값을 바꾼다.
+   */
+  public void updateCow(String earTag, String name, LocalDate birthDate,
+                        String breed, String status, String memo) {
+      this.earTag = earTag;
+      this.name = name;
+      this.birthDate = birthDate;
+      this.breed = breed;
+      this.status = status;
+      this.memo = memo;
+  }
   
   
 }
